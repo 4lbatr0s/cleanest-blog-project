@@ -8,9 +8,11 @@ const pageController = require("./controller/pageController");
 const app = express(); //express türden bir server instance
 
 // connect db 3DT7DZQ8.YP-Z%40x
-mongoose.connect("mongodb+srv://serhat:3DT7DZQ8.YP-Z%40x@cluster0.xrgen.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", {
+const uri = "mongodb+srv://serhat:3DT7DZQ8.YP-Z%40x@cluster0.xrgen.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+mongoose.connect(uri, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
+  useCreateIndex:true
 }).then(()=> {
   console.log('DB Connected!')
 }).catch((err)=> {
